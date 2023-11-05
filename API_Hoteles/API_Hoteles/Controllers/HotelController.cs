@@ -1,5 +1,6 @@
 ﻿using API_Hoteles.Models;
 using API_Hoteles.Models.DTO;
+using API_Hoteles.Models.Repository;
 using AutoMapper;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
@@ -11,13 +12,13 @@ namespace API_Hoteles.Controllers
     [ApiController]
     public class HotelController : ControllerBase
     {
-        private readonly AplicationDbContext _context;
         private readonly IMapper _mapper;
+        private readonly IHotelRepository _hotelRepository;
 
-        public HotelController(AplicationDbContext context, IMapper mapper)
+        public HotelController( IMapper mapper, IHotelRepository hotelRepository)
         {
-            _context = context;
             _mapper = mapper;
+            _hotelRepository = hotelRepository;
         }
 
         [HttpGet]
@@ -25,7 +26,7 @@ namespace API_Hoteles.Controllers
         {
             try
             {
-                var HotelList = await _context.Hotels.ToListAsync();
+                var HotelList = await _hotelRepository.GetListHotels();
                 var HotelListDTO = _mapper.Map<IEnumerable<HotelDTO>>(HotelList);
                 return Ok(HotelListDTO);
             }
@@ -41,7 +42,7 @@ namespace API_Hoteles.Controllers
         {
             try
             {
-                var Hotel = await _context.Hotels.FindAsync(id);
+                var Hotel = await _hotelRepository.GetHotelById(id);
                 if (Hotel == null)
                 {
                     return NotFound();
@@ -49,7 +50,8 @@ namespace API_Hoteles.Controllers
                 var HotelDTO = _mapper.Map<HotelDTO>(Hotel);
                 return Ok(HotelDTO);
 
-            }catch (Exception ex)
+            }
+            catch (Exception ex)
             {
                 return BadRequest(ex.Message);
             }

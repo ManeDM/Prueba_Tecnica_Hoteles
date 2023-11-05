@@ -1,4 +1,5 @@
 using API_Hoteles.Models;
+using API_Hoteles.Models.Repository;
 using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -18,6 +19,9 @@ builder.Services.AddDbContext<AplicationDbContext>(options =>
 
 //Automapper Configuration
 builder.Services.AddAutoMapper(typeof(Program));
+
+//IHotelReposotory Configuration
+builder.Services.AddScoped<IHotelRepository, HotelRepository>();
 
 var app = builder.Build();
 
