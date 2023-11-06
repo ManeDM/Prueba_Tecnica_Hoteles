@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Hotel } from 'src/app/interface/hotel';
 import { HotelService } from 'src/app/services/hotel.service';
+import { MatSnackBar } from '@angular/material/snack-bar';
+import { catchError } from 'rxjs/operators';
 
 @Component({
   selector: 'app-hotel',
@@ -11,16 +13,52 @@ export class HotelComponent implements OnInit {
 
   hotelList: Hotel[] = [];
 
-  constructor(private _hotelService: HotelService ){}
+  constructor(
+    private _snackBar: MatSnackBar,
+    private _hotelService: HotelService ){}
 
   ngOnInit(): void {
     this.getListHotels();
+    
   }
 
-  getListHotels(){
-    this._hotelService.getHotelList().subscribe((data: Hotel[])=>{
-      this.hotelList = data;
-      console.log(this.hotelList)
-    })
+  getListHotels() {
+    this._hotelService.getHotelList()
+      .pipe(
+        catchError(error => {
+          this._snackBar.open('Error al conseguir la data, por favor habilite el servidor en el puerto 7145', '', {
+            duration: 5000,
+            horizontalPosition: 'center',
+            verticalPosition: 'top',
+            politeness: 'assertive',
+            panelClass: 'app-notification-error',
+          });
+          throw error;
+        })
+      )
+      .subscribe((data: Hotel[]) => {
+        this.hotelList = data;
+        console.log(this.hotelList);
+      });
+  }
+
+  editHotel(){
+    this._snackBar.open('Funcionalidad en construcción, pronto podras editar la informacion de los Hoteles', '', {
+      duration: 3500,
+      horizontalPosition: 'center',
+      verticalPosition: 'top',
+      politeness: 'assertive',
+      panelClass: 'app-notification-error',
+    });
+  }
+
+  deleteHotel(){
+    this._snackBar.open('Funcionalidad en construcción, pronto podras eliminar hoteles de la lista', '', {
+      duration: 3500,
+      horizontalPosition: 'center',
+      verticalPosition: 'top',
+      politeness: 'assertive',
+      panelClass: 'app-notification-error',
+    });
   }
 }

@@ -19,7 +19,27 @@ table {
   #details:hover{
     color: rgb(255, 71, 246);
   }
+
+  .delete-icon{
+    cursor: pointer;
+    font-size: 20px;
+    margin-right: 10px;
+  }
+
+  .delete-icon:hover{
+    color: rgb(255, 71, 246);
+  }
   
+  .edit-icon{
+    cursor: pointer;
+    font-size: 20px;
+    margin-left: 10px;
+  }
+
+  .edit-icon:hover{
+    color: rgb(255, 71, 246);
+  }
+
   table caption {
     font-size: 1.5em;
     margin: .5em 0 .75em;

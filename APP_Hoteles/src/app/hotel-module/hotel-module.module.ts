@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { HotelComponent } from './components/hotel/hotel.component';
 import { HotelCardComponent } from './components/hotel-card/hotel-card.component';
+import {MatSnackBarModule} from '@angular/material/snack-bar';
 import { RouterModule } from '@angular/router';
 
 
@@ -13,11 +14,13 @@ import { RouterModule } from '@angular/router';
   ],
   imports: [
     CommonModule,
-    RouterModule 
+    RouterModule,
+    MatSnackBarModule
     
   ],
   exports:[
-    HotelComponent
+    HotelComponent,
+    MatSnackBarModule
   ],
 })
 export class HotelModule { }

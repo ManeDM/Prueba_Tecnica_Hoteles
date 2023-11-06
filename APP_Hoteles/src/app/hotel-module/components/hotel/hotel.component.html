@@ -7,6 +7,7 @@
         <th scope="col">Pais</th>
         <th scope="col">Ciudad</th>
         <th scope="col">Detalles</th>
+        <th scope="col"></th>
       </tr>
     </thead>
     <tbody *ngFor="let hotel of hotelList">
@@ -17,6 +18,10 @@
         <td data-label="Ciudad">{{hotel.city}}</td>
         <td class="icon-details">
           <i class="fa-regular fa-eye" id="details" routerLink="/hotelCard/{{hotel.id}}"></i>
+        </td>
+        <td>
+          <i class="fa-solid fa-pen-to-square edit-icon" (click)="editHotel()"></i>
+          <i class="fa-solid fa-trash edit-icon delete-icon" (click)="deleteHotel()"></i>
         </td>
       </tr>
     </tbody>

@@ -4,3 +4,22 @@ body{
     background-color: #1F2739;
     font-family: 'Poppins';
 }
+html, body{
+    height: 100%;
+}
+body {
+    margin: 0;
+}
+
+
+.mat-mdc-snack-bar-container {
+    --mdc-snackbar-supporting-text-color: #ffffff;
+  
+    &.app-notification-error {
+      --mdc-snackbar-container-color: #f23a2f;
+    }
+  
+} 
+
+
+

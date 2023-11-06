@@ -6,6 +6,7 @@ import { HotelModule } from './hotel-module/hotel-module.module';
 import { AppRoutingModule } from './app-routing.module';
 import { HttpClientModule } from '@angular/common/http'
 import { AppComponent } from './app.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
   declarations: [
@@ -15,7 +16,8 @@ import { AppComponent } from './app.component';
     AppRoutingModule,
     BrowserModule,
     HotelModule,
-    HttpClientModule
+    HttpClientModule,
+    BrowserAnimationsModule
   ],
   exports:[
     HotelModule
