@@ -16,6 +16,9 @@ import { AppComponent } from './app.component';
     HotelModule,
     HttpClientModule
   ],
+  exports:[
+    HotelModule
+  ],
   providers: [],
   bootstrap: [AppComponent]
 })
