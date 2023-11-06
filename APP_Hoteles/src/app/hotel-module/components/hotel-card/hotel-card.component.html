@@ -1,0 +1,14 @@
+<div class="card">
+    <h1>Hotel</h1>
+    <div *ngIf="hotel != null" class="class-container">
+        <p><strong>Nombre: </strong> {{hotel.name}}</p>
+        <p><strong>Estrellas: </strong> {{hotel.stars}}</p>
+        <p><strong>Pais: </strong> {{hotel.country}}</p>
+        <p><strong>Ciudad: </strong> {{hotel.city}}</p>
+        <p><strong>Dirección: </strong> {{hotel.address}}</p>
+        <p><strong>Descripción: </strong> {{hotel.description}}</p>
+    </div>
+    <i class="fa-solid fa-house back-icon" routerLink="/cardList"></i>
+</div>
+
+

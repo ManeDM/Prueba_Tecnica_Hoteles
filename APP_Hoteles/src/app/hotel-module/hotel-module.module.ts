@@ -1,15 +1,20 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { HotelComponent } from './components/hotel/hotel.component';
+import { HotelCardComponent } from './components/hotel-card/hotel-card.component';
+import { RouterModule } from '@angular/router';
 
 
 
 @NgModule({
   declarations: [
-    HotelComponent
+    HotelComponent,
+    HotelCardComponent
   ],
   imports: [
-    CommonModule
+    CommonModule,
+    RouterModule 
+    
   ],
   exports:[
     HotelComponent
