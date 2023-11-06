@@ -7,6 +7,21 @@ table {
     table-layout: fixed;
   }
 
+  .add-button{
+    color: white;
+    cursor: pointer;
+    font-size: 30px;
+    margin: 15px 20px;
+    padding: 5px 5px;
+    border-radius: 50%;
+    position: absolute;
+    background-color: rgb(255, 71, 246);;
+  }
+
+  .add-button:hover{
+    background-color: rgb(133, 155, 34);;
+  }
+
   .title{
     color: white;
   }
@@ -39,6 +54,13 @@ table {
   .edit-icon:hover{
     color: rgb(255, 71, 246);
   }
+  .stars{
+    margin-right: 5px;
+  }
+
+  .stars:hover{
+    color: rgb(255, 71, 246);
+  }
 
   table caption {
     font-size: 1.5em;
@@ -66,6 +88,17 @@ table {
   @media screen and (max-width: 600px) {
     table {
       border: 0;
+    }
+
+    .add-button{
+      color: white;
+      cursor: pointer;
+      font-size: 30px;
+      padding: 5px 5px;
+      border-radius: 50%;
+      bottom: 15px;
+      position: fixed;
+      background-color: rgb(255, 71, 246);;
     }
   
     table caption {
@@ -97,10 +130,6 @@ table {
     }
     
     table td::before {
-      /*
-      * aria-label has no advantage, it won't be read inside a table
-      content: attr(aria-label);
-      */
       content: attr(data-label);
       float: left;
       font-weight: bold;

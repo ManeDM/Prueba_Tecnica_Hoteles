@@ -42,23 +42,33 @@ export class HotelComponent implements OnInit {
       });
   }
 
-  editHotel(){
-    this._snackBar.open('Funcionalidad en construcción, pronto podras editar la informacion de los Hoteles', '', {
+  addtHotel(){
+    this._snackBar.open('Funcionalidad en construcción, pronto podras añadir Hoteles a la tabla', '', {
       duration: 3500,
       horizontalPosition: 'center',
       verticalPosition: 'top',
       politeness: 'assertive',
-      panelClass: 'app-notification-error',
+      panelClass: 'app-notification-inprogress',
+    });
+  }
+
+  editHotel(){
+    this._snackBar.open('Funcionalidad en construcción, pronto podras editar la información de los Hoteles', '', {
+      duration: 3500,
+      horizontalPosition: 'center',
+      verticalPosition: 'top',
+      politeness: 'assertive',
+      panelClass: 'app-notification-inprogress',
     });
   }
 
   deleteHotel(){
-    this._snackBar.open('Funcionalidad en construcción, pronto podras eliminar hoteles de la lista', '', {
+    this._snackBar.open('Funcionalidad en construcción, pronto podras eliminar Hoteles de la lista', '', {
       duration: 3500,
       horizontalPosition: 'center',
       verticalPosition: 'top',
       politeness: 'assertive',
-      panelClass: 'app-notification-error',
+      panelClass: 'app-notification-inprogress',
     });
   }
 }

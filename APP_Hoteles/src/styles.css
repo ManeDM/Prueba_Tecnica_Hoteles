@@ -18,6 +18,10 @@ body {
     &.app-notification-error {
       --mdc-snackbar-container-color: #f23a2f;
     }
+
+    &.app-notification-inprogress {
+        --mdc-snackbar-container-color: rgb(133, 155, 34);
+      }
   
 } 
 

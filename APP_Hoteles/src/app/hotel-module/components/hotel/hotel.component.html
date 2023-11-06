@@ -1,3 +1,4 @@
+<i class="fa-solid fa-plus add-button" (click)="addtHotel()"></i>
 <table>
     <caption class="title">Listados de Hoteles</caption>
     <thead>
@@ -13,10 +14,10 @@
     <tbody *ngFor="let hotel of hotelList">
       <tr>
         <td data-label="Nombre">{{hotel.name}}</td>
-        <td data-label="Estrellas"><i class="fa-solid fa-star"></i>{{hotel.stars}}</td>
+        <td data-label="Estrellas"><i class="fa-solid fa-star star stars"></i>{{hotel.stars}}</td>
         <td data-label="Pais">{{hotel.country}}</td>
         <td data-label="Ciudad">{{hotel.city}}</td>
-        <td class="icon-details">
+        <td data-label="Detalles" class="icon-details">
           <i class="fa-regular fa-eye" id="details" routerLink="/hotelCard/{{hotel.id}}"></i>
         </td>
         <td>
