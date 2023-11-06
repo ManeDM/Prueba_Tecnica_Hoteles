@@ -10,6 +10,9 @@ import { HotelComponent } from './components/hotel/hotel.component';
   ],
   imports: [
     CommonModule
-  ]
+  ],
+  exports:[
+    HotelComponent
+  ],
 })
 export class HotelModule { }
