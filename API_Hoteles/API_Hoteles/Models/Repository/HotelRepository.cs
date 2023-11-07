@@ -27,5 +27,12 @@ namespace API_Hoteles.Models.Repository
             _context.Hotels.Remove(hotel);
             await _context.SaveChangesAsync();
         }
+
+        public async Task<Hotel> AddHotel(Hotel hotel)
+        {
+            _context.Add(hotel);
+            await _context.SaveChangesAsync();
+            return hotel;
+        }
     }
 }
