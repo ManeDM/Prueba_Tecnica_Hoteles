@@ -78,5 +78,27 @@ namespace API_Hoteles.Controllers
                 return BadRequest(ex.Message);
             }
         }
+
+        [HttpPost]
+
+        public async Task<IActionResult> Post(HotelDTO hotelDTO)
+        {
+            try
+            {
+                var hotel = _mapper.Map<Hotel>(hotelDTO);
+
+                hotel.CreationDate = DateTime.Now;
+
+                hotel = await _hotelRepository.AddHotel(hotel);
+
+                var hotelItemDTO = _mapper.Map<HotelDTO>(hotel);
+
+                return CreatedAtAction("Get", new { id = hotel.Id }, hotelItemDTO);
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ex.Message);
+            }
+        }
     }
 }
