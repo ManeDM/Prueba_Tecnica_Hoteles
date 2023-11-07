@@ -4,5 +4,6 @@
     {
         Task<List<Hotel>> GetListHotels();
         Task<Hotel> GetHotelById(int id);
+        Task DeleteHotel(Hotel hotel);
     }
 }

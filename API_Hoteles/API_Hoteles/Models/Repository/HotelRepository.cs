@@ -2,7 +2,7 @@
 
 namespace API_Hoteles.Models.Repository
 {
-    public class HotelRepository: IHotelRepository
+    public class HotelRepository : IHotelRepository
     {
         private readonly AplicationDbContext _context;
 
@@ -22,5 +22,10 @@ namespace API_Hoteles.Models.Repository
             return await _context.Hotels.FindAsync(id);
         }
 
+        public async Task DeleteHotel(Hotel hotel)
+        {
+            _context.Hotels.Remove(hotel);
+            await _context.SaveChangesAsync();
+        }
     }
 }
