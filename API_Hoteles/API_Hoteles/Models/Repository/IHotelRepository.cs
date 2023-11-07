@@ -6,5 +6,6 @@
         Task<Hotel> GetHotelById(int id);
         Task DeleteHotel(Hotel hotel);
         Task<Hotel> AddHotel(Hotel hotel);
+        Task UpdateHotel(Hotel hotel);
     }
 }

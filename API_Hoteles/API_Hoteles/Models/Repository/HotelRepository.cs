@@ -34,5 +34,22 @@ namespace API_Hoteles.Models.Repository
             await _context.SaveChangesAsync();
             return hotel;
         }
+
+        public async Task UpdateHotel(Hotel hotel)
+        {
+           var hotelValue = await _context.Hotels.FirstOrDefaultAsync(h => h.Id == hotel.Id);
+            
+            if (hotelValue != null)
+            {
+                hotelValue.Name = hotel.Name;
+                hotelValue.Stars = hotel.Stars;
+                hotelValue.Country = hotel.Country;
+                hotelValue.City = hotel.City;
+                hotelValue.Address = hotel.Address;
+                hotelValue.Description = hotel.Description;
+
+                await _context.SaveChangesAsync();
+            }
+        }
     }
 }

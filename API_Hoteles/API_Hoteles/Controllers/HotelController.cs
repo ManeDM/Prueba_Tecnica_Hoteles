@@ -100,5 +100,35 @@ namespace API_Hoteles.Controllers
                 return BadRequest(ex.Message);
             }
         }
+
+        [HttpPut("{id}")]
+
+        public async Task<IActionResult> Put(int id, HotelDTO hotelDTO)
+        {
+            try
+            {
+                var hotel = _mapper.Map<Hotel>(hotelDTO);
+
+                if(id != hotel.Id)
+                {
+                    return BadRequest();
+                }
+
+                var hotelValue = await _hotelRepository.GetHotelById(id);
+
+                if(hotelValue == null)
+                {
+                    return BadRequest();
+                }
+
+                await _hotelRepository.UpdateHotel(hotel);
+
+                return NoContent();
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ex.Message);
+            }
+        }
     }
 }
