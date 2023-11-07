@@ -56,5 +56,27 @@ namespace API_Hoteles.Controllers
                 return BadRequest(ex.Message);
             }
         }
+
+        [HttpDelete("{id}")]
+
+        public async Task<IActionResult> Delete(int id)
+        {
+            try
+            {
+                var hotel = await _hotelRepository.GetHotelById(id);
+                if(hotel == null)
+                {
+                    return NotFound();
+                }
+
+                await _hotelRepository.DeleteHotel(hotel);
+
+                return NoContent();
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ex.Message);
+            }
+        }
     }
 }
